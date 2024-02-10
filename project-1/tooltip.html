@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        defer
+        src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Tooltip 1 Component -->
+
+    <div class="hover" x-data="{ hover : false }">
+        <button class="tblhover"
+        @mouseover=" hover = true "
+        @mouseleave=" hover = false "
+        >Hover Me!</button>
+
+        <div class="hover-text" x-show=" hover "> 
+            This Is Tooltip Hover!
+        </div>
+    </div>
+
+    <!-- Tooltip 2 Components -->
+
+    <div class="click" x-data="{ click : false }">
+        <button class="tblclick"
+        @click=" click = !click "
+        >Click Me!</button>
+
+        <div class="click-text" x-show=" click "> 
+            This Is Tooltip Click!
+        </div>
+    </div>
+    
+</body>
+</html>
