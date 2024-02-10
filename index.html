@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+        <title>Belajar Alpine.js</title>
+        <style>
+            .bold {
+                font-weight: bold;
+            }
+            .green {
+                color: green;
+            }
+            img {
+                max-width: 100px;
+            }
+            .hide {
+                display: none;
+            }
+            .show {
+                display: block;
+            }
+            .box {
+                height : 200px;
+                width: 200px;
+                background-color: cadetblue;
+            }
+            .transition {
+                transition: all 3s ease-in-out;
+            }
+            .enter-start{
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            .enter-end{
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <!-- local state
+        <div x-data="{ message : 'Hello World!'}">
+            <div x-data="{ pesan : 'Learn Alpine js'}">
+             <p><span x-text="message"></span></p>
+             <p><span x-text="pesan"></span></p>
+            </div>
+
+            single element
+            <div>
+                <button x-data="{ label : 'Click Here'}" x-text="label"></button>
+            </div> -->
+
+<!-- ################################################################## -->
+
+        <!-- Global state -->
+
+        <!-- <div x-data>
+            <ul>
+            <template x-for="nama in $store.mahasiswa.nama">
+                <li x-text="nama"></li>
+            </template>
+            </ul>
+        </div>
+
+        </div>
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.store('mahasiswa', {
+                    tahun : 2023,
+                    nama : ['Nurul', 'Alya', 'Izzati'],
+                });
+            });
+        </script> -->
+
+<!-- ################################################################## -->
+
+        <!-- data less Alpine -->
+
+        <!-- <button x-data @click="alert('Tombol telah diklik!')">click here!</button> -->
+
+        <!-- <div class=" container mx-auto w-1/2 text-center mt-10 bg-lime-200 p-10 rounded-xl shadow">
+
+            <h1 x-data="{ nama : 'Liza', angka : 6}"
+                class="text-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-400 bg-clip-text 
+                text-transparent drop-shadow-sm">
+                Hello World! <span x-text="angka"></span> adalah bilangan <span x-text="angka % 2 === 0 ? 'Genap' : 'Ganjil' "></span>
+            </h1> 
+
+        </div> -->
+
+        <!-- <div
+            x-data="{open : false}"
+            class="container mx-auto w-1/2 text-center mt-10 bg-lime-200 p-10 rounded-xl shadow"
+        > -->
+            <!-- <h1
+                x-data="{ nama : 'Liza', angka : 6, link : '<a href=\'https://www.google.com\'>Liza</a>'}"
+                class="text-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-400 bg-clip-text text-transparent drop-shadow-sm"
+            >
+                Hello World! <span x-html="link"></span>
+            </h1> -->
+
+<!-- ################################################################## -->
+
+            <!-- x-bind -->
+
+            <!-- <button
+                @click="open = !open"
+                x-text="open ? 'Tutup' : 'Buka'"
+                x-bind:class="open ? 'bg-cyan-600' : 'bg-slate-600' "
+                @keyup.esc.window="open = false"
+                class="py-2 px-5 bg-slate-600 text-white rounded-md"
+            >
+                Buka
+            </button>
+            <div
+                x-show="open"
+                x-transition.origin.top.bottom.duration.1000ms
+                class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white"
+            >
+                Halo gess ini lagi nyoba Alpine
+            </div>
+        </div> -->
+
+        <!-- ################################################################## -->
+
+        <!-- event object -->
+
+        <!-- <div>
+            <div
+                x-data="{pesan : 'Hello World!'}"
+                class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow"
+            >
+            <button
+            @click="ubahWarna" id="tombolPesan" data-pesan="Hello World!"
+            class="py-2 px-5 bg-blue-400 text-white rounded-md"
+        >
+            Click Here!
+        </button>
+
+            </div>
+        </div>
+
+        <script>
+            function ubahWarna(e) {
+                e.target.classList.add('bg-red-500')
+            }
+        </script> -->
+
+<!-- ################################################################## -->
+
+        <!-- keyboard events -->
+
+        <!-- <div>
+            <div
+                x-data="{pesan : 'Hello World!'}"
+                class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow"
+            >
+
+            <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Type Your Name</label>
+            <input type="text" @keyup.shift.enter="alert( 'data telah terkirim!' )"
+                class="bg-gray-50 border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+
+            </div>
+        </div> -->
+
+        <!-- ################################################################## -->
+
+        <!-- custom events -->
+
+        <!-- <div>
+            <div
+                x-data="{pesan : 'Hello World!'}" 
+                class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow"
+            >
+
+            <label for="nama" class="text-sm font-medium text-gray-900 block mb-2">Type Your Name</label>
+            <input type="text" @keyup.debounce.500ms="console.log($event.target.value)"
+                class="bg-gray-50 border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+
+            <button @click.stop="alert('button di klik')"
+                class="py-2 px-5 bg-slate-600 text-white rounded-md mt-3"
+            >
+                Send
+            </button>
+
+            </div>
+        </div> -->
+
+<!-- ################################################################## -->
+
+        <!-- two way data binding (models) -->
+
+        <!-- <div
+            x-data="{ pesan: '', open: '', hobby: [] }"
+            class="container mx-auto w-1/2 text-center mt-10 bg-red-200 p-10 rounded-xl shadow"
+        >
+            <label
+                for="nama"
+                class="text-sm font-medium text-gray-900 block mb-2"
+                >Masukkan Pesan</label
+            >
+            <textarea
+                x-model="pesan"
+                type="text"
+                class="bg-gray-50 border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            >
+            </textarea>
+
+            <span
+                x-text="pesan.length"
+                class="text-lg flex text-green-500 font-bold"
+                x-bind:class="pesan.length > 20 ? 'text-red-500' : ' '"
+            ></span>
+
+            <input type="checkbox" id="checkbox" x-model="open" />
+            <label for="checkbox" x-text="!open ? 'kosong' : 'terisi' "></label>
+
+            <div class="mt-5">
+                <div class="flex items-center mb-2">
+                    <input
+                        type="checkbox"
+                        x-model="hobby"
+                        id="menulis"
+                        value="menulis"
+                        class="w-4 h-4 text-blue-600 border-gray-300 rounded"
+                    />
+                    <label for="menulis" class="ml-2 text-sm">Menulis</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input
+                        type="checkbox"
+                        x-model="hobby"
+                        id="Menyanyi"
+                        value="menyanyi"
+                        class="w-4 h-4 text-blue-600 border-gray-300 rounded"
+                    />
+                    <label for="Menyanyi" class="ml-2 text-sm">Menyanyi</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input
+                        type="checkbox"
+                        x-model="hobby"
+                        id="Ngoding"
+                        value="ngoding"
+                        class="w-4 h-4 text-blue-600 border-gray-300 rounded"
+                    />
+                    <label for="Ngoding" class="ml-2 text-sm">Ngoding</label>
+                </div>
+
+                <p class="text-left text-sm">
+                    Hobby:
+                    <span
+                        x-text="hobby.map(h => h.charAt(0).toUpperCase() + h.slice(1))"
+                    ></span>
+                </p>
+            </div>
+        </div> -->
+
+
+
+<!-- ################################################################## -->
+
+
+        <!-- <div x-data="{ nama: ' '}">
+                <label >Name: </label>
+                <input type="text" x-model="nama">
+                <p x-text=" 'my name is' + nama "></p>
+            </div> -->
+
+        <!-- <div x-data="{ myColor : ' ' }">
+                <select x-model="myColor">
+                    <option value="">Select a Color</option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="Yelow">Yelow</option>
+                </select>
+                <p x-show="myColor">my favourite color is <span x-text="myColor"></span> </p>
+            </div> -->
+
+        <!-- <div x-data="{myText: 'bold green'}">
+                <p x-bind:class="myText">Lorem Ipsum dolor sit ammet.</p>
+            </div> -->
+        <!-- 
+            <div x-data="{ styles: {color: 'white', background: 'blue', padding: '4em'}}">
+                <div x-bind:style="styles">
+                    lorem ipsum dolor
+                </div>
+            </div>
+
+            <div x-data="{ image : 'https://images.unsplash.com/photo-1707152567175-f840e5b4232c?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8' }">
+                <img x-bind:src="image" alt=""
+            </div> -->
+
+        <!-- <div x-data="{ isOpen: false}">
+            <p x-bind:class="isOpen ? 'show' : 'hide'">
+                lorem ipsum dolor sit almet
+            </p>
+            <button @click=" isOpen = !isOpen">toggle</button>
+        </div>
+
+<br>
+
+        <div x-data>
+            <button @click="$refs.name.focus()">Focus</button>
+            <input  type="text" x-ref="name">
+        </div> -->
+
+        <!-- <div x-data="{open : false}">
+            <button @click="open = !open">Toggle</button>
+
+            <div class="box" x-show="open"
+            x-transition
+            x-transition:enter.duration.1000ms
+            x-transition:leave.duration.1000ms
+            x-transition.enter.scale.10
+            x-transition.leave.scale.origin.top.left.10
+            ></div>
+        </div>
+         -->
+        
+         <div x-data="{open: false}">
+            <button @click="open = !open">Toggle</button>
+
+            <div class="box" x-show="open"
+                x-transition:enter="transition"
+                x-transition:enter-start="enter-start"
+                x-transition:enter-start="enter-end"
+                
+                x-transition:leave="transition"
+                x-transition:leave-end="enter-end"
+                x-transition:leave-end="enter-start"
+            ></div>
+
+        </div>
+    </body>
+</html>
