@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Monserrat' sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px
+}
+
+
+.tblhover{
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: 600px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid rgb(247, 213, 162);
+    background-color: blanchedalmond;
+}
+
+.tblhover:hover {
+    background-color: rgb(248, 205, 141);
+}
+
+.hover {
+    position: relative;
+}
+
+.hover-text {
+    bottom: 60px;
+    position: absolute;
+    width: 120px;
+    font-size: 13px;
+    background-color: blanchedalmond;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid rgb(247, 213, 162);
+    border-radius: 5px;
+}
+
+.hover-text::after{
+    content: '';
+    position: absolute;
+    border: 10px solid;
+    border-color: rgb(247, 213, 162) transparent transparent transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: 30%;
+}
+
+.click {
+    position: relative;
+}
+
+.tblclick {
+    position: relative;
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: 600px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid rgb(210, 165, 212);
+    background-color:  rgb(213, 192, 214);
+}
+
+.click-text{
+    bottom: 60px;
+    position: absolute;
+    width: 120px;
+    font-size: 13px;
+    background-color: rgb(213, 192, 214);
+    color: black;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid rgb(179, 148, 179);
+    border-radius: 5px;
+}
+
+.click-text::after{
+    content: '';
+    position: absolute;
+    border: 10px solid;
+    border-color: rgb(179, 148, 179) transparent transparent transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: 30%;
+}
